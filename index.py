@@ -6,10 +6,10 @@ app = Flask(__name__)
 def aboutpage():
     return render_template("about.html")
 
-@app.route('/', defaults = {'name' : "0" , 'name1' : "0"})
-@app.route('/<name> <name1>')
-def mainpage(name,name1):
-    return render_template("index.html" , name = name, name1 = name1)
+@app.route('/', defaults = {'name' : "0"})
+@app.route('/<name>')
+def mainpage(name):
+    return render_template("index.html" , name = name)
 
 
 @app.route('/submit' , methods = ['GET'])
@@ -46,7 +46,7 @@ def submit():
             
         p=len(original_words)
                     
-        return redirect(url_for('mainpage' , name = p , name1 = x))
+        return redirect(url_for('mainpage' , name = p))
         
     else: 
         return redirect(url_for('mainpage'))
