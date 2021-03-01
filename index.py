@@ -7,9 +7,6 @@ def aboutpage():
     return render_template("about.html")
 
 @app.route('/', defaults = {'name' : "0"})
-def mainpage1(name):
-    return render_template("index.html" , name = name)
-
 @app.route('/<name>')
 def mainpage(name):
     return render_template("index.html" , name = name)
